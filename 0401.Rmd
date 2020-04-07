@@ -1,0 +1,102 @@
+---
+title: '0325'
+output: html_document
+---
+
+
+## list
+```{r}
+vectorExample <- c(2,6,7)
+listExample <- list(2,6,7)
+ 
+print(vectorExample)
+print(listExample)
+```
+```{r}
+c("2020-03-31T13:40:55Z"
+  "一芳"
+  "2杯"
+  "水果茶")
+library(lubridate)
+`小明交易1` <- list(
+    ymd_hms("2020-03-31T13:40:55Z")
+)
+c("108學年第1學期","高級會計學","高等統計學",
+  "108學年第2學期","食在拉丁美洲")
+
+# list含兩個vectors
+`小明108學年課表A` <- list(
+  c("108-1","高級會計學","高等統計學"),
+  c("108-2","食在拉丁美洲")
+)
+print(`小明108學年課表A`)
+
+
+# list含兩個lists, 子層list又各含兩個vectors
+`小明108學年課表C` <- list(
+  list(
+    c("108-1"), # 可只寫 "108-1"
+    c("高級會計學","高等統計學")
+       ),
+  list(
+    c("108-2"),
+    c("食在拉丁美洲")
+  )
+)
+print(`小明108學年課表C`)
+
+```
+```{r}
+# list含兩個lists, 子層list又各含兩個vectors
+`小明108學年課表D` <- list(
+  `上學期`=list(
+    semester=c("108-1"), # 可只寫 "108-1"
+    courses=c("高級會計學","高等統計學")
+       ),
+  `下學期`=list(
+    semester=c("108-2"),
+    courses=c("食在拉丁美洲")
+  )
+)
+print(`小明108學年課表D`)
+```
+```{r}
+commit <- list(
+  author = list(
+    name="Martin老師",
+    email="mtlin@gm.ntpu.edu.tw",
+    time= ymd_hms("2020-03-25T07:17:40Z")
+  ) ,
+  commiter = ,
+  message = "update"
+)
+
+print(commit)
+```
+```{r}
+library(jsonlite) # 不少同學這行會有Error，還記得如何排除嗎？
+toJSON(commit)
+```
+```{r}
+save(commit,listExample,小明108學年課表D,file="0401.Rda")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
